@@ -1,0 +1,26 @@
+RTR Assignment 2 Submission
+
+
+Mathew Byrne
+mbyrne
+s3081491
+
+View the online report at:
+http://yallara.cs.rmit.edu.au/~mbyrne/rtr/
+
+The source code is written in C++ and will compile using make with the
+Makefile provided. The SDL, SDL_image, SDL_ttf and OpenGL 2.0 libraries are
+required for a successful build. Also random crashes may occur if the data
+directory is not intact.
+
+See the report for Bugs and Known Issues.
+
+A quick overview of the source code: most of the main shadow determining
+algorithm is contained in renderer.cpp. The main function and classes is
+contained in station, which itself inherits from the class contained in
+basegame.cpp Maths classes are contained in the math/ folder. The obj/ folder
+contains the code and grammar used to load *.OBJ files. The model/ directory
+contains classes relevant to the modelling of the scene (lights, camera,
+model etc). In the material/ folder are abstractions for Textures and Shaders.
+And lastly the font/ folder contains a class for rendering textured fonts to
+the screen.
