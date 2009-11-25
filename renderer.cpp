@@ -159,6 +159,8 @@ void Renderer::drawScene(Scene& scene, Camera& camera)
       
       // Iluminate the scene fro this light.
       illuminationPass(scene, camera);
+
+	glClear(GL_STENCIL_BUFFER_BIT);
   	}
   	
     scene.dirtyAllCasters();

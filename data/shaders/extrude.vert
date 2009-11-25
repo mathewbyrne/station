@@ -10,16 +10,18 @@ uniform vec4 lightPos;
 
 void main()
 {
-  if (gl_Vertex.w == 0.0)
-  {
-    // These transformations handle point and directional lights by
-    // using the w component of all vertices.
-    gl_Vertex.x = lightPos.w * gl_Vertex.x - lightPos.x;
-    gl_Vertex.y = lightPos.w * gl_Vertex.y - lightPos.y;
-    gl_Vertex.z = lightPos.w * gl_Vertex.z - lightPos.z;
-  }
+	vec4 v = gl_Vertex;
 
-  gl_Position = ftransform();
-  gl_FrontColor = gl_Color;
+	if (v.w == 0.0)
+	{
+	// These transformations handle point and directional lights by
+	// using the w component of all vertices.
+		v.x = lightPos.w * gl_Vertex.x - lightPos.x;
+		v.y = lightPos.w * gl_Vertex.y - lightPos.y;
+		v.z = lightPos.w * gl_Vertex.z - lightPos.z;
+	}
+
+	gl_Position = gl_ModelViewProjectionMatrix * v;
+	gl_FrontColor = gl_Color;
 }
 

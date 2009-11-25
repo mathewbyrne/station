@@ -1,9 +1,9 @@
-//
-// ltypes.h
-//
-// Typedefs, includes and structs that are required as
-// a base in multiple source files.
-//
+/**
+ * ltypes.h
+ *
+ * Typedefs, includes and structs that are required as
+ * a base in multiple source files.
+ */
 
 #ifndef _LTYPES_H_
 #define _LTYPES_H_

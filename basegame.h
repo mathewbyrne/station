@@ -10,9 +10,11 @@
 #define _BASEGAME_H_
 
 
-#include "ltypes.h"
 #include <string>
 #include <SDL/SDL.h>
+
+#include "ltypes.h"
+
 
 using namespace std;
 
@@ -26,56 +28,55 @@ class BaseGame
 
 protected:
 
-  SDL_Surface *screen;
+	SDL_Surface *screen;
 
-  ulong  lastTime;
-  ulong  thisTime;
+	ulong lastTime;
+	ulong thisTime;
 
-  uint winWidth;
-  uint winHeight;
+	uint winWidth;
+	uint winHeight;
 
-  string winTitle;
+	string winTitle;
 
-  bool   running;
+	bool running;
 
-  int    fpsTicks;
-  int    fpsCounter;
-  float  fpsCurrent;
+	int   fpsTicks;
+	int   fpsCounter;
+	float fpsCurrent;
 
-  void pUpdate( void );
-  void pRender( void );
-  void pEvents( void );
+	void pUpdate(void);
+	void pRender(void);
+	void pEvents(void);
 
-  uint flags;
+	uint flags;
 
 
 public:
-
-  BaseGame( const uint& width = DEF_WIDTH, const uint& height = DEF_HEIGHT,
-      const uint& flags = SDL_OPENGL | SDL_RESIZABLE );
-  virtual ~BaseGame( void );
-
-  // Starts the engine.
-  void start( void );
-
-  // Public versions of the protected functions.
-  virtual void render( void )    = 0;
-  virtual void update( const uint& timePassed ) = 0;
-  virtual void resize( const uint& newWidth, const uint& newHeight ) = 0;
-
-  // Input handling functions.
-  virtual void keyDown( const int& key ) = 0;
-  virtual void keyUp  ( const int& key ) = 0;
-  virtual void mouseMotion ( const int& btn, const int& mx, const int& my ) = 0;
-  virtual void mouseBtnUp  ( const int& btn, const int& mx, const int& my ) = 0;
-  virtual void mouseBtnDown( const int& btn, const int& mx, const int& my ) = 0;
-
-  // Misc mutators/accessors.
-  void setTitle( const string& title );
-
-  SDL_Surface  *getScreen() const;
-  const string& getTitle()  const;
-  const float&  getFps()    const;
+	
+	BaseGame(const uint& width = DEF_WIDTH, const uint& height = DEF_HEIGHT,
+		const uint& flags = SDL_OPENGL | SDL_RESIZABLE);
+	virtual ~BaseGame(void);
+	
+	void start(void);
+	
+	// Public versions of the protected functions.
+	virtual void render(void) = 0;
+	virtual void update(const uint& timePassed) = 0;
+	virtual void resize(const uint& newWidth, const uint& newHeight) = 0;
+	
+	// Input handling functions.
+	virtual void keyDown(const int& key) = 0;
+	virtual void keyUp  (const int& key) = 0;
+	virtual void mouseMotion (const int& btn, const int& mx, const int& my) = 0;
+	virtual void mouseBtnUp  (const int& btn, const int& mx, const int& my) = 0;
+	virtual void mouseBtnDown(const int& btn, const int& mx, const int& my) = 0;
+	
+	// Misc mutators/accessors.
+	void setTitle(const string& title);
+	
+	SDL_Surface*  getScreen() const;
+	const string& getTitle() const;
+	const float&  getFps() const;
 
 };
 

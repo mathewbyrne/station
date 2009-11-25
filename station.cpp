@@ -26,7 +26,7 @@ static ObjModel *interior, *cube, *sphere, *torus;
 Station::Station()
 {
 	// Instantiate all the classes required for the application.
-	cam      = new Camera(Vec3(0.0, 0.0, 0.0), Vec3(0.0, 0.0, 0.0));
+	cam      = new Camera(Vec3(0.0, 0.0, 10.0), Vec3(0.0, 0.0, 0.0));
 	scene    = new Scene();
 	renderer = new Renderer();
 
@@ -57,11 +57,11 @@ Station::Station()
 	// Initialise the light setup here. The first two lights are animated, they
 	// just circle around a fixed path. The other lights are static.
 	//               Initial Light Position           Light Color
-	Light light1(Vec3( 2.0f, 6.0f,  2.0f, 1.0f), Vec3(0.2f, 0.2f, 0.2f));
+	Light light1(Vec3( 2.0f, 6.0f,  2.0f, 1.0f), Vec3(0.9f, 0.9f, 0.9f));
 	Light light2(Vec3( 0.0f, 8.0f,  0.0f, 1.0f), Vec3(0.4f, 0.4f, 0.4f));
 	Light light3(Vec3( 5.0f, 6.0f,  5.0f, 1.0f), Vec3(0.2f, 0.2f, 0.6f));
-	Light light4(Vec3( 5.0f, 6.0f, -5.0f, 1.0f), Vec3(0.2f, 0.4f, 0.2f));
-	Light light5(Vec3(-5.0f, 6.0f, -5.0f, 1.0f), Vec3(0.5f, 0.4f, 0.1f));
+	Light light4(Vec3( 5.0f, 6.0f, -5.0f, 1.0f), Vec3(0.2f, 0.8f, 0.2f));
+	Light light5(Vec3(-5.0f, 6.0f, -5.0f, 1.0f), Vec3(0.8f, 0.4f, 0.1f));
 	Light light6(Vec3(-5.0f, 6.0f,  5.0f, 1.0f), Vec3(0.2f, 0.1f, 0.1f));
 
 	scene->addLight(light1);
